@@ -1,0 +1,11 @@
+{
+  "functions": {
+    "targets": [
+      "GithubExtension"
+    ],
+    "ignore": [
+      ".output"
+    ],
+    "source": "functions"
+  }
+}

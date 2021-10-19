@@ -1,0 +1,20 @@
+{
+	"deployment": {
+		"name": "GithubExtension",
+		"stack": "java8",
+		"type": "integration",
+		"integration_config": [
+			{
+				"service": "ZohoCliq",
+				"handlers": {
+					"bot_handler": "com.handlers.BotHandler",
+					"command_handler": "com.handlers.CommandHandler",
+					"function_handler": "com.handlers.FunctionHandler"
+				}
+			}
+		]
+	},
+	"execution": {
+		"main": "MainClass"
+	}
+}
