@@ -19,7 +19,7 @@ import com.zc.cliq.objects.ActionData;
 import com.zc.cliq.objects.BotDetails;
 import com.zc.cliq.objects.ButtonObject;
 import com.zc.cliq.objects.Confirm;
-import com.zc.cliq.objects.MessageBuilder;
+import com.zc.cliq.objects.Message;
 import com.zc.cliq.objects.Slide;
 import com.zc.cliq.requests.BotContextHandlerRequest;
 import com.zc.cliq.requests.BotMentionHandlerRequest;
@@ -46,7 +46,7 @@ public class BotHandler implements com.zc.cliq.interfaces.BotHandler
 		}
 		else if(message.equalsIgnoreCase("webhooktoken")){
 			
-			MessageBuilder msg = MessageBuilder.getInstance("Click on the token generation button below!");
+			Message msg = Message.getInstance("Click on the token generation button below!");
 			ButtonObject btnObj = new ButtonObject();
 			btnObj.setType(BUTTON_TYPE.GREEN_OUTLINE);
 			btnObj.setLabel("Create Webhook");
@@ -77,7 +77,7 @@ public class BotHandler implements com.zc.cliq.interfaces.BotHandler
 	
 	@Override
 	public Map<String, Object> menuActionHandler(BotMenuActionHandlerRequest req) throws Exception {
-		MessageBuilder msg = MessageBuilder.getInstance();
+		Message msg = Message.getInstance();
 		BotDetails bot = BotDetails.getInstance(GithubConstants.BOT_NAME);
 		msg.setBot(bot);
 		if(req.getActionName().equals("Repos")){
@@ -124,9 +124,10 @@ public class BotHandler implements com.zc.cliq.interfaces.BotHandler
 	public Map<String, Object> webhookHandler(BotWebhookHandlerRequest req) throws Exception
 	{	
 		JSONObject reqBody = req.getBody();
+		LOGGER.info(reqBody.toString());
 		JSONObject commitJson = reqBody.optJSONArray("commits").optJSONObject(0);
 		
-		MessageBuilder msg = MessageBuilder.getInstance("A commit has been pushed !");
+		Message msg = Message.getInstance("A commit has been pushed !");
 		msg.setBot(BotDetails.getInstance(GithubConstants.BOT_NAME));
 		
 		Slide commitMsg = Slide.getInstance();
@@ -170,7 +171,7 @@ public class BotHandler implements com.zc.cliq.interfaces.BotHandler
 		else{
 			text = "I'm too a participant of this chat :wink:";
 		}
-		MessageBuilder msg = MessageBuilder.getInstance(text);
+		Message msg = Message.getInstance(text);
 		return ZCCliqUtil.toMap(msg);
 	}
 	
@@ -178,7 +179,7 @@ public class BotHandler implements com.zc.cliq.interfaces.BotHandler
 	public Map<String,Object> welcomeHandler(BotWelcomeHandlerRequest req) {
 		String uName = req.getUser() != null ? req.getUser().getFirstName() : "user";
 		String text = "Hello " + uName + ". Thank you for subscribing :smile:";
-		MessageBuilder msg = MessageBuilder.getInstance(text);
+		Message msg = Message.getInstance(text);
 		return ZCCliqUtil.toMap(msg);
 	}
 	

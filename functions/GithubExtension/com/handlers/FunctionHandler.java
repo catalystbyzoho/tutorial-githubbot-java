@@ -5,7 +5,7 @@ import java.util.Map;
 
 import com.zc.cliq.objects.FormChangeResponse;
 import com.zc.cliq.objects.FormDynamicFieldResponse;
-import com.zc.cliq.objects.MessageBuilder;
+import com.zc.cliq.objects.Message;
 import com.zc.cliq.objects.WidgetSection;
 import com.zc.cliq.requests.ButtonFunctionRequest;
 import com.zc.cliq.requests.FormFunctionRequest;
@@ -26,7 +26,7 @@ public class FunctionHandler implements com.zc.cliq.interfaces.FunctionHandler
 		else{
 			text = "Button function executed";
 		}
-		MessageBuilder msg = MessageBuilder.getInstance(text);
+		Message msg = Message.getInstance(text);
 		return ZCCliqUtil.toMap(msg);
 	}
 	

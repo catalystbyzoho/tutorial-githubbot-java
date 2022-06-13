@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <classpath>
   <classpathentry kind="lib" path="lib/catalyst-function-sdk-1.0.0.jar"/>
-  <classpathentry kind="lib" path="lib/catalyst-java-cliq-sdk-1.0.0.jar"/>
-  <classpathentry kind="lib" path="lib/catalyst-java-sdk-1.5.1.jar"/>
+  <classpathentry kind="lib" path="lib/catalyst-java-cliq-sdk-1.1.0.jar"/>
+  <classpathentry kind="lib" path="lib/catalyst-java-sdk-1.7.0.jar"/>
   <classpathentry kind="lib" path="lib/commons-logging-1.0.4.jar"/>
   <classpathentry kind="lib" path="lib/gradle-wrapper.jar"/>
   <classpathentry kind="lib" path="lib/jackson-annotations-2.7.9.jar"/>
