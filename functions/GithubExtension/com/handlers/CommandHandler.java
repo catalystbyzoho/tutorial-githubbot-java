@@ -13,7 +13,7 @@ import com.zc.api.APIRequest;
 import com.zc.cliq.enums.SLIDE_TYPE;
 import com.zc.cliq.objects.BotDetails;
 import com.zc.cliq.objects.CommandSuggestion;
-import com.zc.cliq.objects.MessageBuilder;
+import com.zc.cliq.objects.Message;
 import com.zc.cliq.objects.Slide;
 import com.zc.cliq.requests.CommandHandlerRequest;
 import com.zc.cliq.util.ZCCliqUtil;
@@ -25,7 +25,7 @@ public class CommandHandler implements com.zc.cliq.interfaces.CommandHandler
 	@Override
 	public Map<String, Object> executionHandler(CommandHandlerRequest req) throws Exception{
 		
-		MessageBuilder msg = MessageBuilder.getInstance();
+		Message msg = Message.getInstance();
 		
 		BotDetails bot = BotDetails.getInstance(GithubConstants.BOT_NAME);
 		msg.setBot(bot);
